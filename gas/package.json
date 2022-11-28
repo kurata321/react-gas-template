@@ -1,0 +1,36 @@
+{
+  "name": "gas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "kurata321",
+  "license": "MIT",
+  "scripts": {
+    "build": "node_modules/.bin/webpack",
+    "push": "yarn build && node_modules/.bin/clasp push",
+    "push:watch": "yarn build --watch & node_modules/.bin/clasp push --watch",
+    "gen-dts": "google-script-dts-generator --sourcesDir . --outputDir ../frontend/src/@types"
+  },
+  "dependencies": {
+    "@google/clasp": "^2.4.2",
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/google-apps-script": "^1.0.56",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "babel-loader": "^9.1.0",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-webpack-plugin": "^3.2.0",
+    "gas-webpack-plugin": "^2.3.0",
+    "google-script-dts-generator": "^1.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.9.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
+  }
+}

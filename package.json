@@ -1,0 +1,22 @@
+{
+  "name": "web-app",
+  "version": "1.0.0",
+  "workspaces": [
+    "gas",
+    "frontend"
+  ],
+  "license": "MIT",
+  "private": "true",
+  "scripts": {
+    "open": "clasp open --webapp --deploymentId <id>",
+    "open:head": "yarn clasp deployments | grep @HEAD | awk '{print $2}' | xargs -I@ yarn clasp open --webapp --deploymentId @",
+    "build:gas": "yarn workspace gas run build",
+    "build:frontend": "yarn workspace frontend run build && mv frontend/build/index.html dist/app.html",
+    "push": "yarn run build:frontend && yarn run build:gas && echo y | clasp push",
+    "deploy": "clasp deploy -i <id>",
+    "gen-dts": "yarn workspace gas run gen-dts"
+  },
+  "dependencies": {
+    "@google/clasp": "^2.4.2"
+  }
+}
